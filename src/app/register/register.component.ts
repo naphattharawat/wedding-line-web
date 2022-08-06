@@ -47,12 +47,12 @@ export class RegisterComponent implements OnInit {
             //     this.displayName = profile.displayName;
             //     this.pictureUrl = profile.pictureUrl;
             //     // console.log(profile);
-            //     if (this.userId) {
-            //       this.site = 1
-            //     } else{
-            //       // liff.closeWindow();
-            //       location.reload();
-            //     }
+            if (this.userId) {
+              this.site = 1
+            } else {
+              // liff.closeWindow();
+              location.reload();
+            }
             //   }).catch((err) => {
             //     console.log('error', err);
             //     this.alertService.error(err);
@@ -118,14 +118,14 @@ export class RegisterComponent implements OnInit {
         type: 'text',
         text: `ยังไม่แน่ใจ`
       }]);
-      const accessToken = await liff.getAccessToken();
-      if (accessToken) {
-        await this.registerService.sendMessage({
-          token: accessToken,
-          userId: this.userId,
-          message: 'หากมาแน่นอนแล้วหรือมาไม่ได้แล้วแวะมาบอกกันซักนิดนะคะ'
-        })
-      }
+      // const accessToken = await liff.getAccessToken();
+      // if (accessToken) {
+      await this.registerService.sendMessage({
+        token: 'accessToken',
+        userId: this.userId,
+        message: 'หากมาแน่นอนแล้วหรือมาไม่ได้แล้วแวะมาบอกกันซักนิดนะคะ'
+      })
+      // }
       await liff.closeWindow();
     } else if (status == 'NO') {
       await this.registerService.saveStatus({
