@@ -20,7 +20,6 @@ export class HotelComponent implements OnInit {
     private alertService: AlertService,
     private registerService: RegisterService
   ) {
-    this.liffRegisterId = '1657342863-BNpJANGv';
   }
 
   async ngOnInit() {
@@ -28,7 +27,7 @@ export class HotelComponent implements OnInit {
       // Using a Promise object
       liff
         .init({
-          liffId: this.liffRegisterId // Use own liffId
+          liffId: '1657342863-BNpJANGv' // Use own liffId
         })
         .then(() => {
           if (!liff.isLoggedIn()) {
@@ -79,7 +78,7 @@ export class HotelComponent implements OnInit {
       type: 'text',
       text: 'สามารถแจ้งจำนวนที่ต้องการจอง หรือหากต้องการเสริมเตียงแจ้งได้เลยนะคะ'
     }]);
-    liff.closeWindow();
+    await liff.closeWindow();
   }
   async room4() {
     await liff.sendMessages([{
@@ -89,7 +88,7 @@ export class HotelComponent implements OnInit {
       type: 'text',
       text: 'สามารถแจ้งจำนวนที่ต้องการจอง หรือหากต้องการเสริมเตียงแจ้งได้เลยนะคะ'
     }]);
-    liff.closeWindow();
+    await liff.closeWindow();
   }
 
 }
