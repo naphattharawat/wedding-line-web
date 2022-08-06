@@ -91,7 +91,7 @@ export class RegisterComponent implements OnInit {
       })
       await liff.sendMessages([{
         type: 'text',
-        text: `ทั้งหมด ${this.no} ท่าน`
+        text: `ไปแน่นอนทั้งหมด ${this.no} ท่าน`
       }]);
       const accessToken = await liff.getAccessToken();
       if (accessToken) {
@@ -110,10 +110,10 @@ export class RegisterComponent implements OnInit {
         no: this.no,
         status: 'UNSURE'
       })
-      // await liff.sendMessages([{
-      //   type: 'text',
-      //   text: `หากมาแน่นอนแล้วหรือมาไม่ได้แล้วแวะมาบอกกันซักนิดนะคะ`
-      // }]);
+      await liff.sendMessages([{
+        type: 'text',
+        text: `ยังไม่แน่ใจ`
+      }]);
       const accessToken = await liff.getAccessToken();
       if (accessToken) {
         await this.registerService.sendMessage({
@@ -131,10 +131,10 @@ export class RegisterComponent implements OnInit {
         no: this.no,
         status: 'DONOT'
       })
-      // await liff.sendMessages([{
-      //   type: 'text',
-      //   text: `หากเปลี่ยนใจแวะมาบอกกันได้นะคะ`
-      // }]);
+      await liff.sendMessages([{
+        type: 'text',
+        text: `ไม่ได้ไปนะ`
+      }]);
       const accessToken = await liff.getAccessToken();
       if (accessToken) {
         await this.registerService.sendMessage({
