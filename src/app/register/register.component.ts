@@ -120,7 +120,7 @@ export class RegisterComponent implements OnInit {
           message: 'หากมาแน่นอนแล้วหรือมาไม่ได้แล้วแวะมาบอกกันซักนิดนะคะ'
         })
       }
-      liff.closeWindow();
+      await liff.closeWindow();
     } else if (status == 'NO') {
       await this.registerService.saveStatus({
         userId: this.userId,
