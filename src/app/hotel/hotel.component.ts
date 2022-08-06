@@ -33,6 +33,7 @@ export class HotelComponent implements OnInit {
           if (!liff.isLoggedIn()) {
             await liff.login({ redirectUri: `https://dev.moph.go.th:8080/hotel` });
           } else {
+            console.log(liff.getDecodedIDToken());
             // if (liff.isInClient()) {
             await liff.getProfile()
               .then(async profile => {
