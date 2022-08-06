@@ -71,8 +71,8 @@ export class HotelComponent implements OnInit {
 
 
 
-  room2() {
-    liff.sendMessages([{
+  async room2() {
+    await liff.sendMessages([{
       type: 'text',
       text: `Superior room ห้อง สำหรับ 2 ท่าน ราคาห้องละ 1100 บาทค่ะ`
     }, {
@@ -81,8 +81,8 @@ export class HotelComponent implements OnInit {
     }]);
     liff.closeWindow();
   }
-  room4() {
-    liff.sendMessages([{
+  async room4() {
+    await liff.sendMessages([{
       type: 'text',
       text: `Deluxe room บ้าน 2 ห้องนอน สำหรับ 4 ท่าน ราคาห้องละ 2500 บาทค่ะ`
     }, {

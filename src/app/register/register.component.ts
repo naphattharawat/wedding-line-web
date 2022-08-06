@@ -87,7 +87,7 @@ export class RegisterComponent implements OnInit {
         no: this.no,
         status: 'CONFIRM'
       })
-      liff.sendMessages([{
+      await liff.sendMessages([{
         type: 'text',
         text: `ทั้งหมด ${this.no} ท่าน`
       },{
@@ -103,7 +103,7 @@ export class RegisterComponent implements OnInit {
         no: this.no,
         status: 'UNSURE'
       })
-      liff.sendMessages([{
+      await liff.sendMessages([{
         type: 'text',
         text: `หากมาแน่นอนแล้วหรือมาไม่ได้แล้วแวะมาบอกกันซักนิดนะคะ`
       }]);
@@ -116,7 +116,7 @@ export class RegisterComponent implements OnInit {
         no: this.no,
         status: 'DONOT'
       })
-      liff.sendMessages([{
+      await liff.sendMessages([{
         type: 'text',
         text: `หากเปลี่ยนใจแวะมาบอกกันได้นะคะ`
       }]);
