@@ -94,6 +94,7 @@ export class RegisterComponent implements OnInit {
         type: 'text',
         text: 'แล้วเจอกันวันงานนะคะ'
       }]);
+      liff.closeWindow();
     } else if (status == 'WAIT') {
       await this.registerService.saveStatus({
         userId: this.userId,
@@ -106,6 +107,7 @@ export class RegisterComponent implements OnInit {
         type: 'text',
         text: `หากมาแน่นอนแล้วหรือมาไม่ได้แล้วแวะมาบอกกันซักนิดนะคะ`
       }]);
+      liff.closeWindow();
     } else if (status == 'NO') {
       await this.registerService.saveStatus({
         userId: this.userId,
@@ -118,9 +120,10 @@ export class RegisterComponent implements OnInit {
         type: 'text',
         text: `หากเปลี่ยนใจแวะมาบอกกันได้นะคะ`
       }]);
+      liff.closeWindow();
     }
     // line liff close
    
-    liff.closeWindow();
+    
   }
 }
