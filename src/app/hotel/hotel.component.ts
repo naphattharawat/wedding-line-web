@@ -33,23 +33,10 @@ export class HotelComponent implements OnInit {
           if (!liff.isLoggedIn()) {
             await liff.login({ redirectUri: `https://dev.moph.go.th:8080/hotel` });
           } else {
-            console.log(liff.getDecodedIDToken());
-            // if (liff.isInClient()) {
-            await liff.getProfile()
-              .then(async profile => {
-                this.userId = profile.userId;
-                this.displayName = profile.displayName;
-                this.pictureUrl = profile.pictureUrl;
-                // console.log(profile);
-                // if (this.userId) {
-
-
-                // }
-              }).catch((err) => {
-                console.log('error', err);
-                this.alertService.error(err);
-              });
-
+            const profile: any = await liff.getDecodedIDToken();
+            this.userId = profile.sub;
+            this.displayName = profile.name;
+            this.pictureUrl = profile.picture;
           }
 
         })
@@ -85,7 +72,7 @@ export class HotelComponent implements OnInit {
         message: 'สามารถแจ้งจำนวนที่ต้องการจอง หรือหากต้องการเสริมเตียงแจ้งได้เลยนะคะ'
       })
     }
-   
+
     await liff.closeWindow();
   }
   async room4() {

@@ -36,23 +36,27 @@ export class RegisterComponent implements OnInit {
           if (!liff.isLoggedIn()) {
             await liff.login({ redirectUri: `https://dev.moph.go.th:8080` });
           } else {
+            const profile: any = await liff.getDecodedIDToken();
+            this.userId = profile.sub;
+            this.displayName = profile.name;
+            this.pictureUrl = profile.picture;
             // if (liff.isInClient()) {
-            await liff.getProfile()
-              .then(async profile => {
-                this.userId = profile.userId;
-                this.displayName = profile.displayName;
-                this.pictureUrl = profile.pictureUrl;
-                // console.log(profile);
-                if (this.userId) {
-                  this.site = 1
-                } else{
-                  // liff.closeWindow();
-                  location.reload();
-                }
-              }).catch((err) => {
-                console.log('error', err);
-                this.alertService.error(err);
-              });
+            // await liff.getProfile()
+            //   .then(async profile => {
+            //     this.userId = profile.userId;
+            //     this.displayName = profile.displayName;
+            //     this.pictureUrl = profile.pictureUrl;
+            //     // console.log(profile);
+            //     if (this.userId) {
+            //       this.site = 1
+            //     } else{
+            //       // liff.closeWindow();
+            //       location.reload();
+            //     }
+            //   }).catch((err) => {
+            //     console.log('error', err);
+            //     this.alertService.error(err);
+            //   });
 
           }
 
