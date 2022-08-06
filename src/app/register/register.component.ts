@@ -90,10 +90,15 @@ export class RegisterComponent implements OnInit {
       await liff.sendMessages([{
         type: 'text',
         text: `ทั้งหมด ${this.no} ท่าน`
-      },{
-        type: 'text',
-        text: 'แล้วเจอกันวันงานนะคะ'
       }]);
+      const accessToken = await liff.getAccessToken();
+      if (accessToken) {
+        await this.registerService.sendMessage({
+          token: accessToken,
+          userId: this.userId,
+          message: 'แล้วเจอกันวันงานนะคะ'
+        })
+      }
       liff.closeWindow();
     } else if (status == 'WAIT') {
       await this.registerService.saveStatus({
@@ -103,10 +108,18 @@ export class RegisterComponent implements OnInit {
         no: this.no,
         status: 'UNSURE'
       })
-      await liff.sendMessages([{
-        type: 'text',
-        text: `หากมาแน่นอนแล้วหรือมาไม่ได้แล้วแวะมาบอกกันซักนิดนะคะ`
-      }]);
+      // await liff.sendMessages([{
+      //   type: 'text',
+      //   text: `หากมาแน่นอนแล้วหรือมาไม่ได้แล้วแวะมาบอกกันซักนิดนะคะ`
+      // }]);
+      const accessToken = await liff.getAccessToken();
+      if (accessToken) {
+        await this.registerService.sendMessage({
+          token: accessToken,
+          userId: this.userId,
+          message: 'หากมาแน่นอนแล้วหรือมาไม่ได้แล้วแวะมาบอกกันซักนิดนะคะ'
+        })
+      }
       liff.closeWindow();
     } else if (status == 'NO') {
       await this.registerService.saveStatus({
@@ -116,10 +129,18 @@ export class RegisterComponent implements OnInit {
         no: this.no,
         status: 'DONOT'
       })
-      await liff.sendMessages([{
-        type: 'text',
-        text: `หากเปลี่ยนใจแวะมาบอกกันได้นะคะ`
-      }]);
+      // await liff.sendMessages([{
+      //   type: 'text',
+      //   text: `หากเปลี่ยนใจแวะมาบอกกันได้นะคะ`
+      // }]);
+      const accessToken = await liff.getAccessToken();
+      if (accessToken) {
+        await this.registerService.sendMessage({
+          token: accessToken,
+          userId: this.userId,
+          message: 'หากเปลี่ยนใจแวะมาบอกกันได้นะคะ'
+        })
+      }
       liff.closeWindow();
     }
     // line liff close

@@ -71,21 +71,11 @@ export class HotelComponent implements OnInit {
 
 
   async room2() {
-    const accessToken = await liff.getAccessToken();
-    if (accessToken) {
-      await this.registerService.sendMessage({
-        token: accessToken,
-        userId: this.userId,
-        message: 'สามารถแจ้งจำนวนที่ต้องการจอง หรือหากต้องการเสริมเตียงแจ้งได้เลยนะคะ'
-      })
-    }
     await liff.sendMessages([{
       type: 'text',
       text: `Superior room ห้อง สำหรับ 2 ท่าน ราคาห้องละ 1100 บาทค่ะ`
     }]);
-    await liff.closeWindow();
-  }
-  async room4() {
+
     const accessToken = await liff.getAccessToken();
     if (accessToken) {
       await this.registerService.sendMessage({
@@ -94,10 +84,24 @@ export class HotelComponent implements OnInit {
         message: 'สามารถแจ้งจำนวนที่ต้องการจอง หรือหากต้องการเสริมเตียงแจ้งได้เลยนะคะ'
       })
     }
+   
+    await liff.closeWindow();
+  }
+  async room4() {
     await liff.sendMessages([{
       type: 'text',
       text: `Deluxe room บ้าน 2 ห้องนอน สำหรับ 4 ท่าน ราคาห้องละ 2500 บาทค่ะ`
     }]);
+    
+    const accessToken = await liff.getAccessToken();
+    if (accessToken) {
+      await this.registerService.sendMessage({
+        token: accessToken,
+        userId: this.userId,
+        message: 'สามารถแจ้งจำนวนที่ต้องการจอง หรือหากต้องการเสริมเตียงแจ้งได้เลยนะคะ'
+      })
+    }
+
     await liff.closeWindow();
   }
 
