@@ -32,12 +32,12 @@ export class RegisterComponent implements OnInit {
         .init({
           liffId: this.liffRegisterId // Use own liffId
         })
-        .then(() => {
+        .then(async () => {
           if (!liff.isLoggedIn()) {
-            liff.login({ redirectUri: `https://dev.moph.go.th:8080` });
+            await liff.login({ redirectUri: `https://dev.moph.go.th:8080` });
           } else {
             // if (liff.isInClient()) {
-            liff.getProfile()
+              await liff.getProfile()
               .then(async profile => {
                 this.userId = profile.userId;
                 this.displayName = profile.displayName;

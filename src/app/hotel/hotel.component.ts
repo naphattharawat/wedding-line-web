@@ -29,12 +29,12 @@ export class HotelComponent implements OnInit {
         .init({
           liffId: '1657342863-BNpJANGv' // Use own liffId
         })
-        .then(() => {
+        .then(async () => {
           if (!liff.isLoggedIn()) {
-            liff.login({ redirectUri: `https://dev.moph.go.th:8080/hotel` });
+            await liff.login({ redirectUri: `https://dev.moph.go.th:8080/hotel` });
           } else {
             // if (liff.isInClient()) {
-            liff.getProfile()
+            await liff.getProfile()
               .then(async profile => {
                 this.userId = profile.userId;
                 this.displayName = profile.displayName;
@@ -92,7 +92,7 @@ export class HotelComponent implements OnInit {
       type: 'text',
       text: `Deluxe room บ้าน 2 ห้องนอน สำหรับ 4 ท่าน ราคาห้องละ 2500 บาทค่ะ`
     }]);
-    
+
     const accessToken = await liff.getAccessToken();
     if (accessToken) {
       await this.registerService.sendMessage({
