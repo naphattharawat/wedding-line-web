@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
   async ngOnInit() {
     try {
       // Using a Promise object
-      liff
+      await liff
         .init({
           liffId: this.liffRegisterId // Use own liffId
         })
