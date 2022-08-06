@@ -10,7 +10,7 @@ import liff from '@line/liff';
 })
 export class RegisterComponent implements OnInit {
 
-  site = 1;
+  site = 0;
   no: any;
 
   //line
