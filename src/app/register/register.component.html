@@ -1,0 +1,50 @@
+<div class="bg">
+
+</div>
+<div style="position:absolute;z-index:1" *ngIf="site == 1">
+  <div class="row" style="width: 100%;text-align: center">
+    <div class="col-12" style="padding-top:2rem"> <button class="btn btn-success " style="font-size:1.5rem;width:50%"
+        (click)="onClickGo()">ไปแน่นอน</button></div>
+    <div class="col-12" style="padding-top:2rem"><button class="btn btn-info"
+        style="font-size:1.5rem;width:50%" (click)="onClickConfirm('WAIT')">ยังไม่แน่ใจ</button></div>
+    <div class="col-12" style="padding-top:2rem"> <button class="btn btn-secondary"
+        style="font-size:1.5rem;width:50%"  (click)="onClickConfirm('NO')">ไม่ได้ไปนะ</button></div>
+  </div>
+</div>
+
+<div style="position:absolute;z-index:1" *ngIf="site == 2">
+  <div class="row" style="width: 110%;text-align: center;padding:1rem">
+    <div class="col-12" style="padding-top: 2rem;font-size: 1.2rem;">
+      รบกวนระบุจำนวน(รวมตัวท่าน)นะคะ
+    </div>
+    <div class="col-12">&nbsp;</div>
+    <div class="col-3"><button class="btn btn-success" style="width:100%"(click)="onClickNo(1)">1</button></div>
+    <div class="col-3"><button class="btn btn-success" style="width:100%"(click)="onClickNo(2)">2</button></div>
+    <div class="col-3"><button class="btn btn-success" style="width:100%"(click)="onClickNo(3)">3</button></div>
+    <div class="col-3"><button class="btn btn-success" style="width:100%"(click)="onClickNo(4)">4</button></div>
+    <div class="col-12">&nbsp;</div>
+
+    <div class="col-3"><button class="btn btn-success" style="width:100%"(click)="onClickNo(5)">5</button></div>
+    <div class="col-3"><button class="btn btn-success" style="width:100%"(click)="onClickNo(6)">6</button></div>
+    <div class="col-3"><button class="btn btn-success" style="width:100%"(click)="onClickNo(7)">7</button></div>
+    <div class="col-3"><button class="btn btn-success" style="width:100%"(click)="onClickNo(8)">8</button></div>
+    <div class="col-12">&nbsp;</div>
+  </div>
+  <div class="row" style="width: 110%;text-align: left;padding:1rem">
+
+    <div class="col-12">
+      ปล.มีเด็กมานับด้วยนะคะ
+    </div>
+  </div>
+</div>
+
+<div style="position:absolute;z-index:1" *ngIf="site == 3">
+  <div class="row" style="width: 110%;text-align: center;padding:1rem">
+    <div class="col-12" style="padding-top: 2rem;font-size: 1.5rem;">
+      ทั้งหมด {{no}} ท่าน
+    </div>
+    <div class="col-12">&nbsp;</div>
+    <div class="col-6"><button class="btn btn-success" (click)="onClickConfirm('GO')">ยืนยัน</button></div>
+    <div class="col-6"><button class="btn btn-danger" (click)="site=2">แก้ไข</button></div>
+  </div>
+</div>
