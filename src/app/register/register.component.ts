@@ -10,7 +10,7 @@ import liff from '@line/liff';
 })
 export class RegisterComponent implements OnInit {
 
-  site = 1;
+  site = 0;
   no: any;
 
   //line
@@ -37,16 +37,18 @@ export class RegisterComponent implements OnInit {
             await liff.login({ redirectUri: `https://dev.moph.go.th:8080` });
           } else {
             // if (liff.isInClient()) {
-              await liff.getProfile()
+            await liff.getProfile()
               .then(async profile => {
                 this.userId = profile.userId;
                 this.displayName = profile.displayName;
                 this.pictureUrl = profile.pictureUrl;
                 // console.log(profile);
-                // if (this.userId) {
-
-              
-                // }
+                if (this.userId) {
+                  this.site = 1
+                } else{
+                  // liff.closeWindow();
+                  location.reload();
+                }
               }).catch((err) => {
                 console.log('error', err);
                 this.alertService.error(err);
@@ -144,7 +146,7 @@ export class RegisterComponent implements OnInit {
       liff.closeWindow();
     }
     // line liff close
-   
-    
+
+
   }
 }
