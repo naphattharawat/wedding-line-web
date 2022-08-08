@@ -12,13 +12,15 @@ import { AngularImageViewerModule } from 'angular-x-image-viewer';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ScheduleComponent } from './schedule/schedule.component';
 // import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    HotelComponent
+    HotelComponent,
+    ScheduleComponent
   ],
   imports: [
     BrowserModule,
