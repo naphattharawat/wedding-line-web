@@ -17,7 +17,7 @@ export class HotelComponent implements OnInit {
   pictureUrl: any;
   liffRegisterId: any;
 
-  isSave = false;
+  isSave = true;
   constructor(
     private alertService: AlertService,
     private registerService: RegisterService
@@ -27,7 +27,7 @@ export class HotelComponent implements OnInit {
   async ngOnInit() {
     try {
       // Using a Promise object
-      liff
+      await liff
         .init({
           liffId: '1657342863-BNpJANGv' // Use own liffId
         })
@@ -39,6 +39,7 @@ export class HotelComponent implements OnInit {
             this.userId = profile.sub;
             this.displayName = profile.name;
             this.pictureUrl = profile.picture;
+            this.isSave = false;
           }
 
         })
