@@ -44,7 +44,7 @@
       ทั้งหมด {{no}} ท่าน
     </div>
     <div class="col-12">&nbsp;</div>
-    <div class="col-6"><button class="btn btn-success" (click)="onClickConfirm('GO')">ยืนยัน</button></div>
+    <div class="col-6"><button class="btn btn-success" (click)="onClickConfirm('GO')" [disabled]="isSave">ยืนยัน</button></div>
     <div class="col-6"><button class="btn btn-danger" (click)="site=2">แก้ไข</button></div>
   </div>
 </div>

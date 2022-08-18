@@ -18,6 +18,7 @@ export class RegisterComponent implements OnInit {
   userId: any;
   pictureUrl: any;
   liffRegisterId: any;
+  isSave = false;
   constructor(
     private alertService: AlertService,
     private registerService: RegisterService
@@ -85,6 +86,7 @@ export class RegisterComponent implements OnInit {
   }
 
   async onClickConfirm(status: any) {
+    this.isSave = true;
     if (status == 'GO') {
       await this.registerService.saveStatus({
         userId: this.userId,
@@ -147,10 +149,10 @@ export class RegisterComponent implements OnInit {
           message: 'หากเปลี่ยนใจแวะมาบอกกันได้นะคะ'
         })
       }
-      liff.closeWindow();
+      await liff.closeWindow();
     }
     // line liff close
-
+    this.isSave = false;
 
   }
 }

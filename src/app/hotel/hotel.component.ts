@@ -16,6 +16,8 @@ export class HotelComponent implements OnInit {
   userId: any;
   pictureUrl: any;
   liffRegisterId: any;
+
+  isSave = false;
   constructor(
     private alertService: AlertService,
     private registerService: RegisterService
@@ -59,6 +61,7 @@ export class HotelComponent implements OnInit {
 
 
   async room2() {
+    this.isSave = true;
     await liff.sendMessages([{
       type: 'text',
       text: `Superior room ห้อง สำหรับ 2 ท่าน ราคาห้องละ 1100 บาทค่ะ`
@@ -74,11 +77,13 @@ export class HotelComponent implements OnInit {
     }
 
     await liff.closeWindow();
+    this.isSave = false;
   }
   async room4() {
+    this.isSave = true;
     await liff.sendMessages([{
       type: 'text',
-      text: `Deluxe room บ้าน 2 ห้องนอน สำหรับ 4 ท่าน ราคาห้องละ 2500 บาทค่ะ`
+      text: `Deluxe room บ้าน 2 ห้องนอน สำหรับ 4 ท่าน ราคาหลังละ 2500 บาทค่ะ`
     }]);
 
     const accessToken = await liff.getAccessToken();
@@ -91,6 +96,7 @@ export class HotelComponent implements OnInit {
     }
 
     await liff.closeWindow();
+    this.isSave = false;
   }
 
 }
